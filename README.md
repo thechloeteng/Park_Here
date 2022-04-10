@@ -8,7 +8,7 @@
 
 **Animation Libraries Used:** CSS Keyframes and GreenSock (GSAP)
 
-**Website Link:** <a href=" https://park-here.tchloe.com/" target="_blank"> https://park-here.tchloe.com/</a>
+**Website Link:** <a href=" https://park-here.tchloe.com/"> https://park-here.tchloe.com/</a>
 
 >**Note:** This was a school project that I worked on alone.
 
