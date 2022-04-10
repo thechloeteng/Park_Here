@@ -22,7 +22,7 @@ An interactive web app that functions as an online carpark finding service for d
 
 **Desktop Preview:**
 
-![Demo Video of Park Here]()
+![Demo Video of Park Here](https://user-images.githubusercontent.com/97730901/162626458-202dd156-3a21-4463-bbf3-d3622015effb.mp4)
 
 ## **TODO**
 
