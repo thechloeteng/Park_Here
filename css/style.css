@@ -1,0 +1,1116 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.clearfix {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/********** Global Styling ************/
+
+#all {
+    height: auto;
+}
+
+#home, #selectmall, #draggablemap, 
+#draggablemap-2, #draggablemap-3, 
+#draggablemap-4 {
+    position: relative; /* relative to 
+    <body>, works with margin auto */
+    width: 432px;
+    height: 720px;
+    margin: auto;
+}
+
+.homebg {
+    /* position: fixed; is relative to
+    browser window */
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/svg/HomeBG.svg");
+    background-size: cover;
+}
+
+.blackbg {
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+}
+
+.lightgreybg {
+    background-color: #F7F7F7;
+    width: 100%;
+    height: 100%;
+}
+
+.searchbg {
+    background-color: #E3E3E3;
+    width: 100%;
+    height: 100%;
+}
+
+/**** Home [Page 1] ****/
+
+.content-wrap { /* parent */
+    position: relative;
+    width: 100%; /* 100% of width
+    and height specified in parent */
+    height: 100%;
+    overflow: hidden; /* hide any 
+    overflowing content/elements */
+}
+
+.menu { /* child */
+    position: absolute; /* positioned
+    to nearest parent/ancestor ONLY when
+    they have position: relative */
+    top: 1em;
+    left: 0.95em;
+    cursor: pointer;
+}
+
+.menu-imgbox > img {
+    width: 28px;
+    height: 24px;
+}
+
+.backarrow {
+    position: absolute;
+    top: 1.6em;
+    left: 0.9em;
+    cursor: pointer;
+}
+
+.arrow-imgbox-1 > img { /* bedok mall back arrow button */
+    width: 22px;
+    height: 18px;
+}
+
+.arrow-imgbox-2 > img { /* hougang mall back arrow button */
+    width: 22px;
+    height: 18px;
+}
+
+.arrow-imgbox-3 > img { /* the seletar mall back arrow button */
+    width: 22px;
+    height: 18px;
+}
+
+.arrow-imgbox-4 > img { /* toa payoh mall back arrow button */
+    width: 22px;
+    height: 18px;
+}
+
+.close-button {
+    display: inline-block;
+    float: right;
+    margin: 20px 14.5px;
+    cursor: pointer;
+}
+
+.logo-box {
+    position: relative;
+    top: 50px;
+    left: 90px;
+}
+
+.logo-box > img {
+    width: 85px;
+    height: 77px;
+}
+
+.bottomnav-content > span {
+    position: relative;
+    top: 3px;
+    padding: 0px 15px;
+}
+
+.bottomnav-content > .home svg, .find-carpark svg, .carpark-rules svg {
+    position: absolute;
+    top: 25px;
+    left: 17.5px;
+}
+
+.side-nav {
+    position: absolute;
+    display: block;
+    width: 66%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 1;
+    transform: translateX(-300px);
+    transition: 0.3s;
+}
+
+.side-nav a {
+    position: relative;
+    top: 78px;
+    left: 20px;
+    display: block;
+    padding: 26px 55px;
+    font-size: 1.125em;
+    color: #ffffff;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.side-nav a:hover {
+    color: #F7D139;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.clickedon { /* nav open */
+    display: block;
+    position: absolute;
+    transform: translateX(0px);
+}
+
+.close { /* nav close */
+    display: block;
+    position: absolute;
+    transform: translateX(-300px);
+}
+
+.bottomnav-content {
+    position: relative;
+    top: 40px;
+}
+
+.moon {  /* child */
+    float: right;
+    position: absolute;
+    top: 2.5em;
+    right: 1.8em;
+    animation-name: moonMoveDown;
+    animation-duration: 1.9s;
+    animation-timing-function: ease-out;
+}
+
+.moon-imgbox > img {
+    width: 76px;
+    height: 76px;
+}
+
+.flats {  /* child */
+    position: absolute;
+    top: 24.1em;
+    left: 1em;
+}
+
+.flats-imgbox > img {
+    width: 303px;
+    height: 198px;
+}
+
+.hondacar {  /* child */
+    position: absolute;
+    top: 31.6em;
+    left: 1.6em;
+    animation-name: carMoveRight;
+    animation-duration: 3.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.car-imgbox > img {
+    width: 171px;
+    height: 78px;
+}
+
+.parkingstand {  /* child */
+    float: right;
+    position: absolute;
+    top: 29.48em;
+    right: 1.4em;
+}
+
+.parking-imgbox > img {
+    width: 62px;
+    height: 112px;
+}
+
+/* Home Animations */
+
+@keyframes carMoveRight {
+    0% {
+        transform: translateX(-200px);
+    }
+
+    100% {
+        transform: translateX(430px);
+    }
+}
+
+@keyframes moonMoveDown {
+    from {
+        opacity: 0.6;
+        transform: translateY(-150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
+/**** Select Shopping Mall [Page 2] ****/
+
+/** Add Classes **/
+.col-hide { /* hide entire child box */
+    visibility: 0;
+}
+
+.col-selected { /* light up shopping mall
+    box when clicked */
+    border: 2.97px solid #F7D139;
+    transition: 0.12s;
+}
+
+.select-menu {
+    position: absolute;
+    top: 1.55em;
+    left: 1.1em;
+    cursor: pointer;
+}
+
+.selectmenu-imgbox > img {
+    width: 22px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.header-box {
+    width: 100%;
+    height: 10%;
+}
+
+.header-text {
+    position: relative;
+    top: 1.13em;
+    color: #FFFFFF;
+    font-size: 1.25em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.selectmall-header {
+    padding: 35px 35px;
+    display: block;
+    font-size: 1.5em;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    color: #F7D139;
+}
+
+.shoppingmall-parent {
+    transform: translateY(-11.5px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 29px; /* new property that
+    sets distance between flex items */
+}
+
+.shopping-mall-col-1, .shopping-mall-col-2, .shopping-mall-col-3,
+.shopping-mall-col-4 {
+    transform: translateX(-8px);
+    justify-content: space-between;
+    margin: auto;
+    width: 80%;
+    padding: 10.3px 20.5px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 3px 7px 1.5px #dbdbdb;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.mall-imgbox {
+    transform: translateY(3px);
+    border-radius: 3px;
+    width: 41px;
+    height: 38px;
+}
+
+.shopping-mall-content {
+    padding: 13.5px 11px;
+    display: inline-block;
+}
+
+.mall-name {
+    font-size: 1.15em;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    color: #4B4B4B;
+}
+
+.mall-address {
+    padding: 3.5px 0px;
+    font-size: 0.8em;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    color: #838383;
+}
+
+/**** ALL Malls - Draggable Map Carpark Searching ****/
+
+.icons-popup { /* add class when icon is clicked */
+    animation-name: iconScale;
+    animation-duration: 0.83s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 4;
+}
+
+@keyframes iconScale { /* fade in out in */
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        transform: translateY(0px);
+        transition: 0.5s;
+    }
+}
+
+.pulse-select {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.pulse { /* add div class */
+    animation-name: pulse;
+    animation-duration: 0.85s;
+    animation-timing-function: linear;
+    animation-iteration-count: 3;
+}
+
+@keyframes pulse { /* fade out, in, out, out */
+    0% {
+        box-shadow: 0 0 0 0px #f7d13923; /* 20% color
+        is opacity */
+    }
+
+    90% {
+        box-shadow: 0 0 0 20px #f7d13967; /* 40% color
+        is opacity */
+    }
+
+    95% {
+        box-shadow: 0 0 0 20px #f7d13923; /* 20% color
+        is opacity */
+    }
+
+    100% {
+        box-shadow: 0 0 0 20px #f7d13923; /* 20% color
+        is opacity */
+    }
+}
+
+.hover-me {
+    visibility: 0;
+    background-color: #ffffff;
+    animation-name: slideUp;
+    animation-duration: 1.4s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(250px);
+        opacity: 0;
+        height: 51.5%;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+        height: 57.5%;
+    }
+}
+
+.unhover-me {
+    background-color: #ffffff;
+    animation-name: slideVanish;
+    animation-duration: 1.4s;
+    animation-timing-function: ease-in-out;
+    background-position: 100% 100%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+@keyframes slideVanish {
+    0% {
+        opacity: 1;
+        height: 50%;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(580px);
+        opacity: 0;
+        height: 56%;
+    }
+}
+
+.swipe-left { /* add class to fade out carpark info box */
+    background-color: #ffffff;
+    animation-name: slideLeft;
+    animation-duration: 1.22s;
+    animation-timing-function: ease-in-out;
+    background-position: 100% 100%;
+}
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in { /* add class when carpark info box fade in */
+    background-color: #ffffff;
+    animation-name: boxAppear;
+    animation-duration: 1.22s;
+    animation-timing-function: ease-in-out;
+    background-position: 100% 100%;
+}
+
+@keyframes boxAppear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Bedok Mall Parking Icons */
+.parkingicon-11 {
+    opacity: 1;
+    /* border: 2px solid blue; */
+    position: absolute;
+    top: 15em;
+    left: 15.5em;
+    cursor: pointer;
+}
+
+.pulse > svg {
+    position: absolute;
+    right: 0em;
+    top: 0em;
+}
+
+.parkingicon-12 {
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 12.3em;
+    left: 20em; 
+    cursor: pointer;
+}
+
+.parkingicon-13 { /* static */
+    position: absolute;
+    top: 15.7em;
+    left: 19em; 
+    cursor: pointer;
+}
+
+.parkingicon-14 { /* static */
+    position: absolute;
+    top: 15.7em;
+    left: 10em; 
+    cursor: pointer;
+}
+
+/* Hougang Mall Parking Icons */
+.parkingicon-8 {
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 12em;
+    left: 19em; 
+    cursor: pointer;
+}
+
+.parkingicon-9 {
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 13em;
+    left: 21.2em; 
+    cursor: pointer;
+}
+
+.parkingicon-10 {
+    position: absolute;
+    top: 15.7em;
+    left: 22em; 
+    cursor: pointer;
+}
+
+/* The Seletar Mall Parking Icons */
+.parkingicon-5 {
+    position: absolute;
+    top: 14.5em;
+    left: 17.2em; 
+    cursor: pointer;
+}
+
+.parkingicon-6 {
+    position: absolute;
+    top: 9.6em;
+    left: 22em; 
+    cursor: pointer;
+}
+
+.parkingicon-7 {
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 10.5em;
+    left: 14.8em; 
+    cursor: pointer;
+}
+
+/* Toa Payoh Mall Parking Icons */
+.parkingicon-1 {
+     /* border: 2px solid red; */
+    position: absolute;
+    top: 14.5em;
+    left: 11em;
+    cursor: pointer;
+}
+
+.parkingicon-2 {
+    position: absolute;
+    top: 14em;
+    left: 14.4em;
+    cursor: pointer;
+}
+
+.parkingicon-3 {
+    position: absolute; 
+    top: 10em;
+    left: 14.6em;
+    cursor: pointer;
+}
+
+.parkingicon-4 {
+     /* border: 2px solid red; */
+    position: absolute;
+    top: 9.6em;
+    left: 17.2em;
+    cursor: pointer;
+}
+
+/** Add Classes **/
+.hide-container { /* hidden container, use add 
+    class to unhide when clicked */
+    visibility: hidden;
+}
+
+.parking-location { /* hide carpark address */
+    visibility: 0;
+}
+
+.parking-kind { /* hide carpark type */
+    visibility: 0;
+}
+
+/* Carpark Lots - Add Classes (colors) */
+
+p.lots-green { /* for 300 lots and above, style all p
+elements with lots-green as class */
+    color: #00CC96;
+}
+
+p.lots-yellow { /* for 200-299 lots */
+    color: #FFC82F;
+}
+
+p.lots-red { /* for 0 - 199 lots */
+    color: #E85252;
+}
+
+.fade { /* close subscription locked - popup box */
+    opacity: 0;
+}
+
+.allpopup-cards {
+    opacity: 0;
+    position: absolute;
+    left: 2.3em;
+    bottom: 20em;
+    background: #FFFFFF;
+    border-radius: 8px;
+    width: 83%;
+    height: 25.4%;
+    text-align: center;
+    box-shadow: 0px 5px 6px 3px #e2e2e2;
+}
+
+.popup-selected { /* add class to popup, to shake */
+    opacity: 1;
+    animation-name: popupShake;
+    animation-duration: 0.12s;
+    animation-timing-function: linear;
+    animation-iteration-count: 3;
+}
+
+@keyframes popupShake { /* shake left to right then back */
+    0% {
+        opacity: 1;
+        transform: translateX(-4px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.close-popup { /* add class to close popup */
+    opacity: 1;
+    animation-name: popupVanish;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    transition: 0.3s;
+}
+
+@keyframes popupVanish { /* fade out */
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.x-button {
+    transform: translate(10.1em, 0.48em);
+    cursor: pointer;
+}
+
+.popup-content {
+    padding: 0.5em;
+}
+
+.popup-header {
+    color: #F7D139;
+    font-size: 1.1875em;
+    font-weight: 500;
+}
+
+.popup-para {
+    display: block;
+    margin: auto;
+    padding: 0.725em 0em;
+    width: 80%;
+    color: #464646;
+    line-height: 1.5;
+    font-size: 0.75em;
+    font-weight: 400;
+}
+
+.upgrade-btn {
+    transform: translateY(8px);
+    border: none;
+    border-radius: 5px;
+    background-color: #F7D139;
+    opacity: 78%;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 700;
+    width: 140px;
+    height: 41px;
+    margin: auto;
+}
+
+.upgrade-btn:hover {
+    opacity: 100%;
+    background-color: #F7D139;
+    transition: 0.35s;
+    cursor: pointer;
+}
+
+.upgrade-btn > p {
+    color: white;
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+.parent-container { /* all carpark info containers */
+    position: absolute;
+    bottom: 0.98em;
+    left: 1em;
+    width: 92%;
+    height: 57.5%;
+    border-radius: 8px;
+    box-shadow: 0px 5px 6px 3px #e2e2e2;
+    background-color: #FFFFFF;
+}
+
+.entire-carpark-content {
+   position: relative;
+   left: 0.44em;
+}
+
+.top-box {
+    position: absolute;
+    width: 100%;
+    height: 11%;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.swipeable-line {
+    position: relative;
+    top: 1.2em;
+    margin: auto;
+    width: 43px;
+    height: 6px;
+    background-color: #000000;
+}
+
+.carpark-leftinfo-box {
+    position: absolute;
+    top: 2.6em;
+    width: 70%;
+    height: 40%;
+}
+
+.carpark-rightinfo-box {
+    position: absolute;
+    top: 0.2em;
+    left: 16.2em;
+    width: 30%;
+    height: 24%;
+}
+
+.carparkimg-box { /* b6 carpark */
+    display: inline-block;
+    transform: translate(1em, -4.4em);
+}
+
+.carparkimg-box2 { /* b8 carpark */
+    display: inline-block;
+    transform: translate(1em, -1.18em);
+}
+
+.carparkimg-box3 { /* hg55 carpark */
+    display: inline-block;
+    transform: translate(1em, -1em);
+}
+
+.carparkimg-box4 { /* hg97 carpark */
+    display: inline-block;
+    transform: translate(-2em, -4.4em);
+}
+
+.carparkimg-box5 { /* sk69 carpark */
+    display: inline-block;
+    transform: translate(1em, -1.25em);
+}
+
+.carparkimg-box6 { /* sk77 carpark */
+    display: inline-block;
+    transform: translate(-2em, -1.25em);
+}
+
+.carparkimg-box7 { /* tp16 carpark */
+    display: inline-block;
+    transform: translate(1.05em, -4.56em);
+}
+
+.carparkimg-box8 { /* t17 carpark */
+    display: inline-block;
+    transform: translate(-2em, -4.56em);
+}
+
+.special-padding { /* for cp address and type */ 
+    padding: 0.385em 0em;
+}
+
+.padding {
+    padding: 0.52em 0em;
+}
+
+.carpark-details {
+    display: inline-block;
+    position: absolute;
+    left: 4.77em;
+    width: 70%;
+}
+
+.parking-name {
+    color: #535353;
+    font-size: 1.375em;
+    font-weight: 500;
+}
+
+.parking-address {
+    color: #BFBFBF;
+    font-size: 0.8125em;
+}
+
+.parking-type {
+    transform: translateY(0.12em);
+    color: #4B4B4B;
+    font-size: 0.6875em;
+}
+
+.parking-address, .parking-type {
+    transform: translateY(-0.03em);
+}
+
+.margin {
+    margin-top: 0.06em;
+}
+
+.price-details {
+    position: absolute;
+    left: 1.3em;
+    top: 2.4em;
+}
+
+.parking-price {
+    color: #F7D139;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.parking-hour {
+    position: relative;
+    left: 1.7em;
+    color:#BFBFBF;
+    font-size: 0.9375em;
+}
+
+.bottom-iconparking-box {
+    position: absolute;
+    top: 8em;
+    left: 1.3em;
+    width: 86%;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+.icon-leftinfo-box {
+    display: inline-block;
+    position: relative;
+    right: 0.7em;
+    width: 32%;
+}
+
+.icon-middleinfo-box {
+    display: inline-block;
+    position: relative;
+    right: 0.19em;
+    width: 32%;
+}
+
+.icon-box {
+    display: inline-block;
+}
+
+.availablelots-text {
+    position: absolute;
+    display: inline-block;
+    top: 0.6em;
+}
+
+.lots-available {
+    position: relative;
+    left: 2.15em;
+    bottom: 0.93em;
+    display: block;
+    margin-top: 0.3em;
+    font-size: 1.1250em;
+    font-weight: 600;
+    color: #7E7E7E;
+}
+
+.walkingdistance-text {
+    position: absolute;
+    display: inline-block;
+    top: 0.6em;
+}
+
+.walking-distance {
+    position: relative;
+    left: 2.2em;
+    bottom: 0.93em;
+    display: block;
+    margin-top: 0.3em;
+    color: #7E7E7E;
+    font-size: 1.1250em;
+    font-weight: 600;
+}
+
+.walkingduration-text {
+    position: absolute;
+    display: inline-block;
+    top: 0.6em;
+}
+
+.walking-duration {
+    position: relative;
+    left: 2.25em;
+    bottom: 0.93em;
+    display: block;
+    margin-top: 0.3em;
+    color: #7E7E7E;
+    font-size: 1.1250em;
+    font-weight: 600;
+}
+
+.bottom-info-box {
+    position: absolute;
+    top: 13.05em;
+    left: 0.48em;
+    width: 92%;
+}
+
+.info-iconbox {
+    display: inline-block;
+}
+
+.moreinfo-text {
+    position: absolute;
+    top: 0.62em;
+    display: inline-block;
+}
+
+.carparkinfo-text {
+    position: relative;
+    display: block;
+    bottom: 0.6em;
+    left: 2.6em;
+    width: 80%;
+    color: #4F4F4F;
+    font-size: 0.9375em;
+}
+
+.weather-leftinfo-box {
+    position: absolute;
+    top: 18.6em;
+    left: 0.48em;
+    width: 35%;
+    height: 20%;
+}
+
+.weather-rightinfo-box {
+    position: absolute;
+    top: 18.6em;
+    left: 10em;
+    width: 35%;
+}
+
+.currentweather-text {
+    display: block;
+    position: absolute;
+    top: -0.04em;
+    left: 0.5em;
+    width: 93%;
+    color: #535353;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.temperature-infobox {
+    position: absolute;
+    top: 1.55em; /* 1.75em is original */
+}
+
+.temperature-text {
+    position: absolute;
+    display: inline-block;
+    top: 0.6em;
+}
+
+.temperature, .forecast {
+    position: relative;
+    left: 2.18em;
+    bottom: 0.6em;
+    display: block;
+    color: #7E7E7E;
+    font-size: 1.1250em;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.switch-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 13px;
+}
+
+.circle {
+    transform: translate(10.65em, 24.25em);
+    border: 2px solid #F7D139;
+    width: 13px;
+    height: 12.5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.circle-1:hover, .circle-2:hover {
+    background-color: #F7D139;
+    transition: 0.4s;
+}
+
+.circle-selected {
+    background-color: #F7D139;
+}
+
+/* Temperature (Low/High) - Add Class (colors) */
+
+/** Add Classes **/
+p.partly-cloudy {  /* for 31-34 degrees */
+    color: #B1E9FF;
+}
+
+p.mostly-cloudy { /* for 28-30.9 degrees */
+    color: #7EDCFF;
+}
+
+p.light-showers { /* for 26-27.9 degrees */
+    color:  #52C8F5;
+}
+
+p.thundery-showers { /* for 24-25.9 degrees */
+    color: #00B8FF;
+}
